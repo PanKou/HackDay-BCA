@@ -7,8 +7,8 @@ c.addEventListener('click', on_canvas_click, false);
 
 // Button code
 ct.fillStyle = "#000000";
-ct.fillRect(0, 0, 50, 50);
-
+ct.fillRect(250, 450, 100, 50);
+ct.stroke();
 
 function on_canvas_click(ev) {
     var x = ev.clientX - c.offsetLeft;
