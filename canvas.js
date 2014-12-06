@@ -43,7 +43,7 @@ function getButtons(){
 
 function getPrices(s1, s2){
 	// clear everything
-	ct.clearRect(30, 430, 500, 100);
+	ct.clearRect(30, 390, 500, 40);
 	
 	// price 1
 	ct.font = "10pt Arial";
@@ -78,16 +78,18 @@ function changeButtons(s1, s2, s3){
 
 // http://eli.thegreenplace.net/2010/02/13/finding-out-the-mouse-click-position-on-a-canvas-with-javascript
 function on_canvas_click(ev) {
-    var x = ev.clientX - c.offsetLeft;
-    var y = ev.clientY - c.offsetTop;
-	//alert("x " + x + "y " + y);
+    var x1 = ev.clientX - c.offsetLeft;
+    var y1 = ev.clientY - c.offsetTop;
+	// This is for the button click testing
+	//alert("clicked button");
+	clickButton(x1, y1);
+	//alert("x " + x1 + "y " + y1);
     // ... x,y are the click coordinates relative to the
     // canvas itself
 	
+	//alert('yay');
 	
 	
-	// This is for the button click testing
-	clickButton(x, y);
 }
 
 function clickButton(x, y){
@@ -99,10 +101,10 @@ function clickButton(x, y){
 	//var s4 = loadScript("code.js", pricesil4);
 	//alert(s1);
 	//alert(pricesil1);
-	
+	//alert("click");
 	// button testing for x and y
 	// center button
-	if((x >= 30 && x <= 150) && (y >= 110 && y <= 160)){
+	if((x >= 30 && x <= 150) && (y >= 400 && y <= 450)){
 		//alert("left button clicked");
 		
 		// If first button in first upgrade menu
@@ -112,23 +114,26 @@ function clickButton(x, y){
 		}
 		
 	}
-	else if((x >= 180 && x <= 300) && (y >= 110 && y <= 160)){
+	else if((x >= 180 && x <= 300) && (y >= 400 && y <= 450)){
 		//alert("upgrade button clicked");
 		
 		// Set upgrade menu
 		if(currentMenuId == "m"){
+			//alert(String(pricesil1) + "silver");
+			getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
 			setMenu("u1");	
-			getPrices(pricesil1 + "silver", pricesil2 + "silver");
+			
 		}
 	}
 	
-	else if((x >= 330 && x <= 450) && (y >= 110 && y <= 160)){
+	else if((x >= 330 && x <= 450) && (y >= 400 && y <= 450)){
 		//alert("right button clicked");
 		
 		// Set second upgrade menu
 		if(currentMenuId == "u1"){
+			getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
 			setMenu("u2");
-			getPrices(pricesil3 + "silver", pricesil4 + "silver");
+			
 		}
 		else if(currentMenuId == "u2"){
 			setMenu("m");
