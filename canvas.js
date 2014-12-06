@@ -1,4 +1,13 @@
 // Upgrade Levels
+var upgradeLevels = [0, 0, 0, 0];
+
+// Stats
+	// Clouds
+		// # of clouds - vol
+	// Rates
+		// Clouds per second - volr
+		// Harvest rate - harr
+		// Silver per minute - silpvM
 
 
 // Menus
@@ -17,9 +26,34 @@ getSilver();
 // Test loading script from something else
 //loadScript("code.js", alert(volM));
 
+// Update everything
+window.setInterval(updateStuff, 100);
+
+// I mean update EVERYTHING!
+function updateStuff(){
+	getSilver();
+	
+}
+
+function getStats(){
+	
+	// Stats!!!
+	var numClouds = vol;
+	var cloudsPerSec = volr;
+	var harvestRate = harr;
+	var silverPerMin = silpvM;
+	
+	// Display on screen for "data nerds"
+	// number of silver
+	ct.font = "12pt Arial";
+	ct.fillStyle = "#000000";
+	ct.fillText((s + " silver"), 330, 70);
+	
+}
+
 function getSilver(){
 	var s = sil;
-	// price 1
+	// number of silver
 	ct.font = "40pt Arial";
 	ct.fillStyle = "red";
 	ct.fillText((s + " silver"), 330, 70);
@@ -127,6 +161,7 @@ function clickButton(x, y){
 				alert("Purchase successful!");
 				loadScript("code.js", upharr());
 				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
+				upgradeLevels[0]++;
 				sil = sil - pricesil1;
 			}
 			else{
@@ -142,6 +177,7 @@ function clickButton(x, y){
 				alert("Purchase successful!");
 				loadScript("code.js", upvolr());
 				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
+				upgradeLevels[2]++;
 				sil = sil - pricesil3;
 			}
 			else{
@@ -170,6 +206,7 @@ function clickButton(x, y){
 				alert("Purchase successful!");
 				loadScript("code.js", upsilpvM());
 				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
+				upgradeLevels[1]++;
 				sil = sil - pricesil2;
 			}
 			else{
@@ -185,6 +222,7 @@ function clickButton(x, y){
 				alert("Purchase successful!");
 				loadScript("code.js", upvolM());
 				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
+				upgradeLevels[3]++;
 				sil = sil - pricesil4;
 			}
 			else{
