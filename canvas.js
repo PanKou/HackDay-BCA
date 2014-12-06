@@ -11,8 +11,8 @@ ct.fillRect(0, 0, 50, 50);
 
 
 function on_canvas_click(ev) {
-    var x = ev.clientX - Game.canvas.offsetLeft;
-    var y = ev.clientY - Game.canvas.offsetTop;
+    var x = ev.clientX - c.offsetLeft;
+    var y = ev.clientY - c.offsetTop;
 
     // ... x,y are the click coordinates relative to the
     // canvas itself
