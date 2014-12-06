@@ -1,7 +1,7 @@
 // JavaScript Document
 
 var volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
-var lvlu1 = 0, lvlu2 = 0, lvlu3 = 0, lvlu4 = 0, growr = 1.3;
+var lvlu1 = 0, lvlu2 = 0, lvlu3 = 0, lvlu4 = 0, pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, princesil4 = 1, incharr = 1, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
@@ -9,25 +9,32 @@ function harvest(volume){  // Takes in volume, spits out random number of silver
 }
 //upgrades
 function upharr(lvlu1){
-  sil = sil - Math.pow(lvlu1, growr);
-  harr = harr + Math.pow(lvlu1, growr);
-  
+  sil = sil - pricesil1;
+  harr = harr + incharr;
+  pricesil1 = Math.pow(pricesil1, 1.3);
+  incharr = Math.pow(incharr, 1.3);
 }
 function upsilpvM(lvlu2){
-  sil = sil - Math.pow(lvlu2, growr);
-  silpvM = silpvM + Math.pow(lvlu2, growr);
+  sil = sil - pricesil2;
+  silpvM = silpvM + incsilpvM;
+  pricesil2 = Math.pow(pricesil1, 1.4);
+  incsilpvM = Math.pow(incsilpvM, 1.4);
 }
 function upvolr(lvlu3){
-  sil = sil - Math.pow(lvlu3, growr);
-  volr = volr + Math.pow(lvlu3, growr);
+  sil = sil - pricesil3;
+  volr = volr + incvolr;
+  pricesil3 = Math.pow(pricesil1, 1.3);
+  incvolr = Math.pow(involr, 1.3);
 }
 function upvolM(lvlu4){
-  sil = sil - Math.pow(lvlu4, growr);
-  volM = volM + Math.pow(lvlu4, growr);
+  sil = sil - pricesil4;
+  volM = volM + incvolM;
+  pricesil4 = Math.pow(pricesil1, 1.2);
+  incvolM = Math.pow(incvolM, 1.2);
 }
 
 var update = function() {
-  if (autoc && vol < volM) {
+  if (autoc && vol < volM) {		
     vol = vol+volr;
     if (vol>volM) {
       vol = volM;
