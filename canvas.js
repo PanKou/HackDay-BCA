@@ -18,7 +18,7 @@ var currentMenuId = "m";
 var c = document.getElementById("cv");
 var ct = c.getContext("2d");
 c.addEventListener('click', on_canvas_click, false);
-
+loadScript("code.js", init());
 // Button code
 getButtons();
 changeButtons("-", "Upgrade", "-");
