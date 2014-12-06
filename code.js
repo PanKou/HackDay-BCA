@@ -1,7 +1,16 @@
 // JavaScript Document
 
-var volM = 20, vol=0, volr=0, sil=10, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
-var pricesil1 = 1.0, pricesil2 = 1.0, pricesil3 = 1.0, pricesil4 = 1.0, incharr = 1.2, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
+var volM, vol, volr, intialSil, sil, silpvM, harr, harc, autoc, autos, harvc;
+var pricesil1, pricesil2, pricesil3, pricesil4, incharr, incsilpvM, incvolr, incvolM;
+
+function init(){
+	volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
+	pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, pricesil4 = 1, incharr = 1.2, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
+	
+}
+
+
+//sil = initialSil;
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
@@ -9,7 +18,7 @@ function harvest(volume){  // Takes in volume, spits out random number of silver
 }
 //upgrades
 function upharr(){
-  sil = sil - pricesil1;
+  sil -= pricesil1;
   harr = harr + incharr;
   if(pricesil1 == 1) pricesil1 = 2;
   else{
@@ -19,7 +28,7 @@ function upharr(){
   //alert(Math.pow(pricesil1, 1.3));
 }
 function upsilpvM(){
-  sil = sil - pricesil2;
+  sil -= pricesil2;
   silpvM = silpvM + incsilpvM;
   if(pricesil2 == 1) pricesil2 = 2;
   else{
@@ -28,7 +37,7 @@ function upsilpvM(){
   }
 }
 function upvolr(){
-  sil = sil - pricesil3;
+  sil -= pricesil3;
   volr = volr + incvolr;
   if(pricesil3 == 1) pricesil3 = 2;
   else{
@@ -37,7 +46,7 @@ function upvolr(){
   }
 }
 function upvolM(){
-  sil = sil - pricesil4;
+  sil -= pricesil4;
   volM = volM + incvolM;
   if(pricesil4 == 1) pricesil4 = 2;
   else{
