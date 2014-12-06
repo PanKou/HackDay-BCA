@@ -12,26 +12,9 @@ getButtons();
 changeButtons("-", "Upgrade", "-");
 
 // Test loading script from something else
-//loadScript("code.js"
+//loadScript("code.js", alert(volM));
 
-// Load thy code script!
 
-function loadScript(url, callback)
-{
-    // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = callback;
-    script.onload = callback;
-
-    // Fire the loading
-    head.appendChild(script);
-}
 
 function getButtons(){
 	// clear everything
@@ -106,12 +89,28 @@ function on_canvas_click(ev) {
 	// This is for the button click testing
 	clickButton(x, y);
 }
+
 function clickButton(x, y){
+	// get silver prices as strings
+	//alert(volM);
+	//var s1 = loadScript("code.js", alert(volM));
+	//var s2 = loadScript("code.js", pricesil2);
+	//var s3 = loadScript("code.js", pricesil3);
+	//var s4 = loadScript("code.js", pricesil4);
+	//alert(s1);
+	//alert(pricesil1);
 	
 	// button testing for x and y
 	// center button
 	if((x >= 30 && x <= 150) && (y >= 110 && y <= 160)){
 		//alert("left button clicked");
+		
+		// If first button in first upgrade menu
+		
+		if(currentMenuId == "u1"){
+			
+		}
+		
 	}
 	else if((x >= 180 && x <= 300) && (y >= 110 && y <= 160)){
 		//alert("upgrade button clicked");
@@ -119,6 +118,7 @@ function clickButton(x, y){
 		// Set upgrade menu
 		if(currentMenuId == "m"){
 			setMenu("u1");	
+			getPrices(pricesil1 + "silver", pricesil2 + "silver");
 		}
 	}
 	
@@ -128,9 +128,11 @@ function clickButton(x, y){
 		// Set second upgrade menu
 		if(currentMenuId == "u1"){
 			setMenu("u2");
+			getPrices(pricesil3 + "silver", pricesil4 + "silver");
 		}
 		else if(currentMenuId == "u2"){
 			setMenu("m");
+			getPrices("", "");
 		}
 	}
 	
@@ -153,4 +155,24 @@ function setMenu(menuName){
 	
 	currentMenuId = menuName;
 	
+}
+
+
+// Load thy code script!
+// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
+function loadScript(url, callback)
+{
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
 }
