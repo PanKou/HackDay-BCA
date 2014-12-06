@@ -119,9 +119,17 @@ function clickButton(x, y){
 		
 		if(currentMenuId == "u1"){
 			// Buy upgrade [1, 1]
-			var numSil = sil;
-			
-			alert("Purchase successful!");
+			//var numSil = sil;
+			// Price of upgrade 1 is sufficient enough for the silver
+			if(sil >= pricesil1){
+				alert("Purchase successful!");
+				loadScript("code.js", upharr());
+				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
+				sil = sil - pricesil1;
+			}
+			else{
+				alert("You don't have enough silver! :(");	
+			}
 		}
 		
 	}

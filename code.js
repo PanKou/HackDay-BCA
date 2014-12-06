@@ -8,25 +8,25 @@ function harvest(volume){  // Takes in volume, spits out random number of silver
   return volume*volpvm*random();
 }
 //upgrades
-function upharr(lvlu1){
+function upharr(){
   sil = sil - pricesil1;
   harr = harr + incharr;
   pricesil1 = Math.pow(pricesil1, 1.3);
   incharr = Math.pow(incharr, 1.3);
 }
-function upsilpvM(lvlu2){
+function upsilpvM(){
   sil = sil - pricesil2;
   silpvM = silpvM + incsilpvM;
   pricesil2 = Math.pow(pricesil1, 1.4);
   incsilpvM = Math.pow(incsilpvM, 1.4);
 }
-function upvolr(lvlu3){
+function upvolr(){
   sil = sil - pricesil3;
   volr = volr + incvolr;
   pricesil3 = Math.pow(pricesil1, 1.3);
   incvolr = Math.pow(involr, 1.3);
 }
-function upvolM(lvlu4){
+function upvolM(){
   sil = sil - pricesil4;
   volM = volM + incvolM;
   pricesil4 = Math.pow(pricesil1, 1.2);
