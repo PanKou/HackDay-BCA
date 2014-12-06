@@ -10,10 +10,18 @@ c.addEventListener('click', on_canvas_click, false);
 // Button code
 getButtons();
 changeButtons("-", "Upgrade", "-");
+getSilver();
 
 // Test loading script from something else
 //loadScript("code.js", alert(volM));
 
+function getSilver(){
+	var s = sil;
+	// price 1
+	ct.font = "40pt Arial";
+	ct.fillStyle = "red";
+	ct.fillText((s + " silver"), 330, 70);
+}
 
 
 function getButtons(){
@@ -110,7 +118,10 @@ function clickButton(x, y){
 		// If first button in first upgrade menu
 		
 		if(currentMenuId == "u1"){
+			// Buy upgrade [1, 1]
+			var numSil = sil;
 			
+			alert("Purchase successful!");
 		}
 		
 	}
