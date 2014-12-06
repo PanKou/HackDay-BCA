@@ -1,5 +1,6 @@
 // Upgrade Levels
 var upgradeLevels = [0, 0, 0, 0];
+//var sil = sil;
 
 // Stats
 	// Clouds
@@ -27,16 +28,21 @@ getSilver();
 //loadScript("code.js", alert(volM));
 
 // Update everything
-window.setInterval(updateStuff, 100);
+//var weird = 1;
+//while(weird == 1){
+var intv = window.setInterval(updateStuff(), 100);
+//}
 
 // I mean update EVERYTHING!
 function updateStuff(){
 	getSilver();
 	getStats();
+	//alert("weee");
 }
 
 function getStats(){
 	
+	ct.clearRect(330, 90, 500, 100);
 	// Stats!!!
 	var numClouds = vol;
 	var cloudsPerSec = volr;
@@ -50,15 +56,17 @@ function getStats(){
 	ct.fillText(("Statistics"), 330, 90);
 	ct.fillText(("Number of Clouds: " + vol), 330, 110);
 	ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
-	ct.fillText(("Silver per Minute: " + silpvM), 330, 150);
+	ct.fillText(("Silver per Second: " + silpvM), 330, 150);
+	ct.fillText(("Clouds per Second: " + harc), 330, 170);
 }
 
 function getSilver(){
-	var s = sil;
+	ct.clearRect(300, 30, 500, 90);
+	//var sil = sil;
 	// number of silver
-	ct.font = "40pt Arial";
+	ct.font = "30pt Arial";
 	ct.fillStyle = "red";
-	ct.fillText((s + " silver"), 330, 70);
+	ct.fillText((sil + " silver"), 300, 70);
 }
 
 
@@ -161,10 +169,14 @@ function clickButton(x, y){
 			// Price of upgrade 1 is sufficient enough for the silver
 			if(sil >= pricesil1){
 				alert("Purchase successful!");
-				loadScript("code.js", upharr());
+				
 				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
 				upgradeLevels[0]++;
-				sil = sil - pricesil1;
+				//alert(sil);
+				//alert(pricesil1);
+				//sil = sil - pricesil1;
+				loadScript("code.js", upharr());
+				updateStuff();
 			}
 			else{
 				alert("You don't have enough silver! :(");	
@@ -177,10 +189,14 @@ function clickButton(x, y){
 			// Price of upgrade 2 is sufficient enough for the silver
 			if(sil >= pricesil3){
 				alert("Purchase successful!");
-				loadScript("code.js", upvolr());
+				
 				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
 				upgradeLevels[2]++;
-				sil = sil - pricesil3;
+				
+				//sil = sil - pricesil3;
+				loadScript("code.js", upvolr());
+				updateStuff();
+				
 			}
 			else{
 				alert("You don't have enough silver! :(");	
@@ -206,10 +222,13 @@ function clickButton(x, y){
 			// Price of upgrade 2 is sufficient enough for the silver
 			if(sil >= pricesil2){
 				alert("Purchase successful!");
-				loadScript("code.js", upsilpvM());
+				
 				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
 				upgradeLevels[1]++;
-				sil = sil - pricesil2;
+				
+				//sil = sil - pricesil2;
+				loadScript("code.js", upsilpvM());
+				updateStuff();
 			}
 			else{
 				alert("You don't have enough silver! :(");	
@@ -222,10 +241,17 @@ function clickButton(x, y){
 			// Price of upgrade 2 is sufficient enough for the silver
 			if(sil >= pricesil4){
 				alert("Purchase successful!");
-				loadScript("code.js", upvolM());
+				
 				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
 				upgradeLevels[3]++;
-				sil = sil - pricesil4;
+				//alert(sil);
+				//sil = sil - pricesil4;
+				loadScript("code.js", upvolM());
+				updateStuff();
+				
+				
+				
+				
 			}
 			else{
 				alert("You don't have enough silver! :(");	

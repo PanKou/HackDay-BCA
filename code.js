@@ -1,7 +1,7 @@
 // JavaScript Document
 
-var volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
-var pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, pricesil4 = 1, incharr = 1, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
+var volM = 20, vol=0, volr=0, sil=10, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
+var pricesil1 = 1.0, pricesil2 = 1.0, pricesil3 = 1.0, pricesil4 = 1.0, incharr = 1.2, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
@@ -11,26 +11,39 @@ function harvest(volume){  // Takes in volume, spits out random number of silver
 function upharr(){
   sil = sil - pricesil1;
   harr = harr + incharr;
-  pricesil1 = Math.pow(pricesil1, 1.3);
-  incharr = Math.pow(incharr, 1.3);
+  if(pricesil1 == 1) pricesil1 = 2;
+  else{
+	  pricesil1 = Math.round(Math.pow(pricesil1, 1.3) * 100) / 100;
+	  incharr = Math.round(Math.pow(incharr, 1.3) * 100) / 100;
+  }
+  //alert(Math.pow(pricesil1, 1.3));
 }
 function upsilpvM(){
   sil = sil - pricesil2;
   silpvM = silpvM + incsilpvM;
-  pricesil2 = Math.pow(pricesil1, 1.4);
-  incsilpvM = Math.pow(incsilpvM, 1.4);
+  if(pricesil2 == 1) pricesil2 = 2;
+  else{
+	  pricesil2 = Math.round(Math.pow(pricesil2, 1.4) * 100) / 100;
+	  incsilpvM = Math.round(Math.pow(incsilpvM, 1.4) * 100) / 100;
+  }
 }
 function upvolr(){
   sil = sil - pricesil3;
   volr = volr + incvolr;
-  pricesil3 = Math.pow(pricesil1, 1.3);
-  incvolr = Math.pow(involr, 1.3);
+  if(pricesil3 == 1) pricesil3 = 2;
+  else{
+	  pricesil3 = Math.round(Math.pow(pricesil3, 1.3) * 100) / 100;
+	  incvolr = Math.round(Math.pow(incvolr, 1.3) * 100) / 100;
+  }
 }
 function upvolM(){
   sil = sil - pricesil4;
   volM = volM + incvolM;
-  pricesil4 = Math.pow(pricesil1, 1.2);
-  incvolM = Math.pow(incvolM, 1.2);
+  if(pricesil4 == 1) pricesil4 = 2;
+  else{
+	  pricesil1 = Math.round(Math.pow(pricesil4, 1.2) * 100) / 100;
+	  incharr = Math.round(Math.pow(incvolM, 1.2) * 100) / 100;
+  }
 }
 
 var update = function() {
