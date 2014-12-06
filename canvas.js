@@ -1,5 +1,7 @@
-// JavaScript Document
+// Upgrade Levels
 
+
+// Menus
 var currentMenuId = "m";
 
 // CANVAS!
@@ -131,6 +133,21 @@ function clickButton(x, y){
 				alert("You don't have enough silver! :(");	
 			}
 		}
+		// Do purchase [2, 1]
+		else if(currentMenuId == "u2"){
+			// Buy upgrade [2, 1]
+			//var numSil = sil;
+			// Price of upgrade 2 is sufficient enough for the silver
+			if(sil >= pricesil3){
+				alert("Purchase successful!");
+				loadScript("code.js", upvolr());
+				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
+				sil = sil - pricesil3;
+			}
+			else{
+				alert("You don't have enough silver! :(");	
+			}
+		}
 		
 	}
 	else if((x >= 180 && x <= 300) && (y >= 400 && y <= 450)){
@@ -143,6 +160,38 @@ function clickButton(x, y){
 			setMenu("u1");	
 			
 		}
+		
+		// Do purchase [1, 2]
+		else if(currentMenuId == "u1"){
+			// Buy upgrade [1, 2]
+			//var numSil = sil;
+			// Price of upgrade 2 is sufficient enough for the silver
+			if(sil >= pricesil2){
+				alert("Purchase successful!");
+				loadScript("code.js", upsilpvM());
+				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
+				sil = sil - pricesil2;
+			}
+			else{
+				alert("You don't have enough silver! :(");	
+			}
+		}
+		// Do purchase [2, 2]
+		else if(currentMenuId == "u2"){
+			// Buy upgrade [2, 2]
+			//var numSil = sil;
+			// Price of upgrade 2 is sufficient enough for the silver
+			if(sil >= pricesil4){
+				alert("Purchase successful!");
+				loadScript("code.js", upvolM());
+				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
+				sil = sil - pricesil4;
+			}
+			else{
+				alert("You don't have enough silver! :(");	
+			}
+		}
+		
 	}
 	
 	else if((x >= 330 && x <= 450) && (y >= 400 && y <= 450)){

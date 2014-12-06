@@ -1,7 +1,7 @@
 // JavaScript Document
 
 var volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
-var lvlu1 = 0, lvlu2 = 0, lvlu3 = 0, lvlu4 = 0, pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, pricesil4 = 1, incharr = 1, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
+var pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, pricesil4 = 1, incharr = 1, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
