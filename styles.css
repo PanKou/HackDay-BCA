@@ -14,11 +14,16 @@ h2{
 	text-align:center;
 	font-family:Helvetica, Arial, sans-serif;	
 }
-
+/* http://stackoverflow.com/questions/5127937/how-to-center-canvas-in-html5 */
 #cv{
 	text-align:center;
 	display:inline;
 	border:2px solid #000000;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 canvas{
 	text-align:center;
