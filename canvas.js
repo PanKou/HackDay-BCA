@@ -32,7 +32,7 @@ window.setInterval(updateStuff, 100);
 // I mean update EVERYTHING!
 function updateStuff(){
 	getSilver();
-	
+	getStats();
 }
 
 function getStats(){
@@ -47,8 +47,10 @@ function getStats(){
 	// number of silver
 	ct.font = "12pt Arial";
 	ct.fillStyle = "#000000";
-	ct.fillText((s + " silver"), 330, 70);
-	
+	ct.fillText(("Statistics"), 330, 90);
+	ct.fillText(("Number of Clouds: " + vol), 330, 110);
+	ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
+	ct.fillText(("Silver per Minute: " + silpvM), 330, 150);
 }
 
 function getSilver(){
@@ -148,7 +150,7 @@ function clickButton(x, y){
 	//alert("click");
 	// button testing for x and y
 	// center button
-	if((x >= 30 && x <= 150) && (y >= 400 && y <= 450)){
+	if((x >= 30 && x <= 150) && (y >= 450 && y <= 500)){
 		//alert("left button clicked");
 		
 		// If first button in first upgrade menu
@@ -186,7 +188,7 @@ function clickButton(x, y){
 		}
 		
 	}
-	else if((x >= 180 && x <= 300) && (y >= 400 && y <= 450)){
+	else if((x >= 180 && x <= 300) && (y >= 450 && y <= 500)){
 		//alert("upgrade button clicked");
 		
 		// Set upgrade menu
@@ -232,7 +234,7 @@ function clickButton(x, y){
 		
 	}
 	
-	else if((x >= 330 && x <= 450) && (y >= 400 && y <= 450)){
+	else if((x >= 330 && x <= 450) && (y >= 450 && y <= 500)){
 		//alert("right button clicked");
 		
 		// Set second upgrade menu
