@@ -9,10 +9,12 @@ For sucking clouds (clouds/second):
 -silver magnet
 -cloud generator
 -Jupiter upgrade
--black hole
--worm hole
--interuniversal travel
--into the unknown! (interdimensional travel)
+-black hole *
+-worm hole *
+-interuniversal travel *
+-into the unknown! (interdimensional travel) *
+
+13 upgrades
 
 More effiecient harvesting (silver/second):
 -silver pans
@@ -25,3 +27,4 @@ More effiecient harvesting (silver/second):
 -cloud driven superchargers
 -boost cloud superchargers(1, 2, 3, 4, etc)
 
+9 upgrades

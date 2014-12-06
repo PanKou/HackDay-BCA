@@ -2,6 +2,7 @@
 
 var volM, vol, volr, intialSil, sil, silpvM, harr, harc, autoc, autos, harvc;
 var pricesil1, pricesil2, pricesil3, pricesil4, incharr, incsilpvM, incvolr, incvolM;
+var totalVol;
 
 function init(){
 	volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
@@ -14,7 +15,11 @@ function init(){
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
-  return volume*volpvm*random();
+  totalVol = volume*silpvM*((Math.random() * 100) / 100);
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
 }
 //upgrades
 function upharr(){

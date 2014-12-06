@@ -1,10 +1,23 @@
+// CANVAS!
+var c = document.getElementById("cv");
+var ct = c.getContext("2d");
+
 // Upgrade Levels
 var upgradeLevels = [0, 0, 0, 0];
 var currentClouds = 0;
-var maxClouds = 24;
-var ug1Images = [document.getElementById("1.1"), document.getElementById("1.2"), document.getElementById("1.3"), document.getElementById("1.4"), document.getElementById("1.5")
-//var positionsx = [];
-//var positionsy = [];
+loadScript("code.js", init());
+var maxClouds = volM - 1;
+/*var ug1Images = [];
+var ug2Images = [];
+for(var i = 1; i <= 13; i++){
+	//ug1Images.push(document.getElementById("1." + i));
+	//ct.drawImage(document.getElementById("1.1"), 40, 40);
+}
+for(var i = 1; i <= 9; i++){
+	ug2Images.push(document.getElementById("2." + i));
+}*/
+var positionsx = [];
+var positionsy = [];
 //var sil = sil;
 
 // Stats
@@ -19,11 +32,9 @@ var ug1Images = [document.getElementById("1.1"), document.getElementById("1.2"),
 // Menus
 var currentMenuId = "m";
 
-// CANVAS!
-var c = document.getElementById("cv");
-var ct = c.getContext("2d");
+
 c.addEventListener('click', on_canvas_click, false);
-loadScript("code.js", init());
+
 // Button code
 getButtons();
 changeButtons("Harvest", "Upgrade", "About");
@@ -70,8 +81,8 @@ function getStats(){
 			var cx = getRandomArbitrary(0, 196) + 40;
 			var cy = getRandomArbitrary(0, 270) + 142;
 			ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
-			//positionsx.push(cx);
-			//positionsy.push(cy);
+			positionsx.push(cx);
+			positionsy.push(cy);
 			currentClouds++;
 			// Stats!!!
 			var numClouds = vol;
@@ -180,6 +191,10 @@ function on_canvas_click(ev) {
 	
 }
 
+function clearSilver(){
+	ct.clearRect(196, 270, 300, 300);
+}
+
 function clickButton(x, y){
 	// get silver prices as strings
 	//alert(volM);
@@ -194,10 +209,31 @@ function clickButton(x, y){
 	// center button
 	if((x >= 30 && x <= 150) && (y >= 450 && y <= 500)){
 		//alert("left button clicked");
-		
+		if(currentMenuId == "m"){
+			//alert("test");
+			loadScript("code.js", harvest(currentClouds));
+			var collectedSilver = totalVol;
+			sil += collectedSilver;
+			sil = Math.round(sil);
+			ct.clearRect(30, 150, 300, 300);
+					//ct.drawImage(document.getElementById("silver"), positionsx[i], positionsy[j], 40, 40);
+			updateStuff();
+			/*for(var i = 0; i <= positionsx.length; i++){
+				for(var j = 0; j <= positionsy.length; j++){
+					
+				}
+			}*/
+			/*for(var i = 0; i <= positionsx.length; i++){
+				for(var j = 0; j <= positionsy.length; j++){
+					//window.setTimeout(clearSilver(),300);
+					//ct.drawImage(document.getElementById("silver"), positionsx[i], positionsy[j], 40, 40);
+					//updateStuff();
+				}
+			}*/
+		}
 		// If first button in first upgrade menu
 		
-		if(currentMenuId == "u1"){
+		else if(currentMenuId == "u1"){
 			// Buy upgrade [1, 1]
 			//var numSil = sil;
 			// Price of upgrade 1 is sufficient enough for the silver
@@ -209,6 +245,7 @@ function clickButton(x, y){
 				//alert(sil);
 				//alert(pricesil1);
 				//sil = sil - pricesil1;
+				
 				loadScript("code.js", upharr());
 				updateStuff();
 			}
@@ -226,6 +263,11 @@ function clickButton(x, y){
 				
 				getPrices(String(pricesil3) + " silver", String(pricesil4) + " silver");
 				upgradeLevels[2]++;
+				
+				// Display image
+				ct.clearRect(30, 542, 40, 40);
+				
+				//ct.drawImage(ug1Images[upgradeLevels[2]], 30, 542, 40, 40);
 				
 				//sil = sil - pricesil3;
 				loadScript("code.js", upvolr());
@@ -261,23 +303,10 @@ function clickButton(x, y){
 				upgradeLevels[1]++;
 				
 				// Display image
-				ct.clearRect(330, 90, 500, 100);
-				switch(upgradeLevels[1]){
-					case 1:
-					ct.drawImage(document.getElementById(""), cx, cy, 40, 40);
-					break;
-					
-					case 2:
-					
-					case 3:
-					
-					case 4:
-					
-					
-					
-					default:
-					break;
-				}
+				ct.clearRect(90, 542, 40, 40);
+				
+				//ct.drawImage(ug2Images[upgradeLevels[1]], 30, 542, 40, 40);
+				
 				//sil = sil - pricesil2;
 				loadScript("code.js", upsilpvM());
 				updateStuff();
@@ -311,7 +340,7 @@ function clickButton(x, y){
 		}
 		else{
 			// If a cloud is clicked
-			for(var i = 0; i <= positionsx.length; i++){
+			/*for(var i = 0; i <= positionsx.length; i++){
 				for(var j = 0; j <= positionsy.length; j++){
 					if(x >= i && x <= i + 40){
 						if(y >= j && y <= j	+ 40){
@@ -321,7 +350,7 @@ function clickButton(x, y){
 					}
 				}
 				
-			}
+			}*/
 			
 		}
 		
