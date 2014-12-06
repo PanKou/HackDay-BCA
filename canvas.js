@@ -2,6 +2,7 @@
 var upgradeLevels = [0, 0, 0, 0];
 var currentClouds = 0;
 var maxClouds = 24;
+var ug1Images = [document.getElementById("1.1"), document.getElementById("1.2"), document.getElementById("1.3"), document.getElementById("1.4"), document.getElementById("1.5")
 //var positionsx = [];
 //var positionsy = [];
 //var sil = sil;
@@ -259,6 +260,24 @@ function clickButton(x, y){
 				getPrices(String(pricesil1) + " silver", String(pricesil2) + " silver");
 				upgradeLevels[1]++;
 				
+				// Display image
+				ct.clearRect(330, 90, 500, 100);
+				switch(upgradeLevels[1]){
+					case 1:
+					ct.drawImage(document.getElementById(""), cx, cy, 40, 40);
+					break;
+					
+					case 2:
+					
+					case 3:
+					
+					case 4:
+					
+					
+					
+					default:
+					break;
+				}
 				//sil = sil - pricesil2;
 				loadScript("code.js", upsilpvM());
 				updateStuff();
