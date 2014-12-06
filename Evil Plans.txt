@@ -1,0 +1,9 @@
+"Silver Linings" is a game which takes the phrase "Every cloud has a silver lining" literally.
+
+This is a game where you suck in clouds and harvest them for the bit of silver in them
+You can upgrade
+the rate at which clouds are collected,
+the maximum volume of clouds you can have,
+the rate at which clouds are harvested,
+the maximum amount of silver you can get in each cloud
+etc.
