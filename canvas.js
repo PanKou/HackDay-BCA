@@ -66,9 +66,10 @@ function getStats(){
 	
 	// Display on screen for "data nerds"
 	// number of silver
-	ct.font = "12pt Arial";
+	ct.font = "bold 12pt Arial";
 	ct.fillStyle = "#000000";
 	ct.fillText(("Statistics"), 330, 90);
+	ct.font = "12pt Arial";
 	ct.fillText(("Number of Clouds: " + vol), 330, 110);
 	ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
 	ct.fillText(("Silver per Second: " + silpvM), 330, 150);
