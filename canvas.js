@@ -39,7 +39,22 @@ function updateStuff(){
 	getStats();
 	//alert("weee");
 }
-
+function rainClouds(){
+	var cx = getRandomArbitrary(0, 196) + 40;
+	var cy = getRandomArbitrary(0, 270) + 142;
+	ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
+}
+// http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+// 490x256
+// 262 initial height
+// 10 initial width
+var intv_cloudcreate;
 function getStats(){
 	
 	ct.clearRect(330, 90, 500, 100);
@@ -58,6 +73,10 @@ function getStats(){
 	ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
 	ct.fillText(("Silver per Second: " + silpvM), 330, 150);
 	ct.fillText(("Clouds per Second: " + harc), 330, 170);
+	window.clearInterval(intv_cloudcreate);
+	for(var i = 0; i <= volr; i++){
+		intv_cloudcreate = window.setInterval(rainClouds(), 1000);
+	}
 }
 
 function getSilver(){
