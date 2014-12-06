@@ -1,3 +1,21 @@
 @charset "utf-8";
 /* CSS Document */
 
+h1{
+	text-align:center;	
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+h2{
+	text-align:center;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#button{
+	text-align:center;
+	font-family:Helvetica, Arial, sans-serif;	
+}
+
+#cv{
+	text-align:center;
+	display:inline;
+}
