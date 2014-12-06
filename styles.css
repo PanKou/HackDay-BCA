@@ -18,6 +18,7 @@ h2{
 #cv{
 	text-align:center;
 	display:inline;
+	border:2px solid #000000;
 }
 canvas{
 	text-align:center;

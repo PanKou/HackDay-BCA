@@ -6,9 +6,31 @@ var ct = c.getContext("2d");
 c.addEventListener('click', on_canvas_click, false);
 
 // Button code
-ct.fillStyle = "#000000";
-ct.fillRect(250, 450, 100, 50);
-ct.stroke();
+getButtons();
+
+function getButtons(){
+	// button 1
+	ct.fillStyle = "#000000";
+	ct.fillRect(180, 450, 120, 50);
+	ct.stroke();
+	// button 2
+	ct.fillStyle = "#000000";
+	ct.fillRect(30, 450, 120, 50);
+	ct.stroke();
+	// button 3
+	ct.fillStyle = "#000000";
+	ct.fillRect(330, 450, 120, 50);
+	ct.stroke();
+}
+
+function changeButtons(s1, s2, s3){
+
+	ct.font = "20pt Arial";
+	ct.fillStyle = "#ffffff";
+	ct.fillText("Upgrade", 210, 470);
+
+}
+
 
 function on_canvas_click(ev) {
     var x = ev.clientX - c.offsetLeft;
