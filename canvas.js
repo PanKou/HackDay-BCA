@@ -11,6 +11,28 @@ c.addEventListener('click', on_canvas_click, false);
 getButtons();
 changeButtons("-", "Upgrade", "-");
 
+// Test loading script from something else
+//loadScript("code.js"
+
+// Load thy code script!
+
+function loadScript(url, callback)
+{
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+}
+
 function getButtons(){
 	// clear everything
 	
@@ -35,6 +57,24 @@ function getButtons(){
 	ct.fillRect(330, 450, 120, 50);
 	ct.stroke();
 }
+
+function getPrices(s1, s2){
+	// clear everything
+	ct.clearRect(30, 430, 500, 100);
+	
+	// price 1
+	ct.font = "10pt Arial";
+	ct.fillStyle = "blue";
+	ct.fillText(s1, 30, 430);
+	// price 2
+	ct.font = "10pt Arial";
+	ct.fillStyle = "blue";
+	ct.fillText(s2, 180, 430);
+	
+	
+}
+
+
 
 function changeButtons(s1, s2, s3){
 	
