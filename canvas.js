@@ -1,5 +1,9 @@
 // Upgrade Levels
 var upgradeLevels = [0, 0, 0, 0];
+var currentClouds = 0;
+var maxClouds = 24;
+//var positionsx = [];
+//var positionsy = [];
 //var sil = sil;
 
 // Stats
@@ -21,7 +25,7 @@ c.addEventListener('click', on_canvas_click, false);
 loadScript("code.js", init());
 // Button code
 getButtons();
-changeButtons("-", "Upgrade", "-");
+changeButtons("Harvest", "Upgrade", "About");
 getSilver();
 
 // Test loading script from something else
@@ -30,6 +34,9 @@ getSilver();
 // Update everything
 //var weird = 1;
 //while(weird == 1){
+	
+
+	
 var intv = window.setInterval(updateStuff(), 100);
 //}
 
@@ -39,11 +46,7 @@ function updateStuff(){
 	getStats();
 	//alert("weee");
 }
-function rainClouds(){
-	var cx = getRandomArbitrary(0, 196) + 40;
-	var cy = getRandomArbitrary(0, 270) + 142;
-	ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
-}
+
 // http://stackoverflow.com/questions/1527803/generating-random-numbers-in-javascript-in-a-specific-range
 /**
  * Returns a random number between min (inclusive) and max (exclusive)
@@ -57,26 +60,36 @@ function getRandomArbitrary(min, max) {
 var intv_cloudcreate;
 function getStats(){
 	
-	ct.clearRect(330, 90, 500, 100);
-	// Stats!!!
-	var numClouds = vol;
-	var cloudsPerSec = volr;
-	var harvestRate = harr;
-	var silverPerMin = silpvM;
 	
-	// Display on screen for "data nerds"
-	// number of silver
-	ct.font = "bold 12pt Arial";
-	ct.fillStyle = "#000000";
-	ct.fillText(("Statistics"), 330, 90);
-	ct.font = "12pt Arial";
-	ct.fillText(("Number of Clouds: " + vol), 330, 110);
-	ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
-	ct.fillText(("Silver per Second: " + silpvM), 330, 150);
-	ct.fillText(("Clouds per Second: " + harc), 330, 170);
-	window.clearInterval(intv_cloudcreate);
+	//clearInterval(intv_cloudcreate);
 	for(var i = 0; i <= volr; i++){
-		intv_cloudcreate = window.setInterval(rainClouds(), 1000);
+		intv_cloudcreate = setInterval(function(){
+		//alert('hello')
+		if(currentClouds <= maxClouds){
+			var cx = getRandomArbitrary(0, 196) + 40;
+			var cy = getRandomArbitrary(0, 270) + 142;
+			ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
+			//positionsx.push(cx);
+			//positionsy.push(cy);
+			currentClouds++;
+			// Stats!!!
+			var numClouds = vol;
+			var cloudsPerSec = volr;
+			var harvestRate = harr;
+			var silverPerMin = silpvM;
+			// Display on screen for "data nerds"
+			ct.clearRect(330, 90, 500, 100);
+			ct.font = "bold 12pt Arial";
+			ct.fillStyle = "#000000";
+			ct.fillText(("Statistics"), 330, 90);
+			ct.font = "12pt Arial";
+			ct.fillText(("Number of Clouds: " + currentClouds), 330, 110);
+			ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
+			ct.fillText(("Silver per Second: " + silpvM), 330, 150);
+			ct.fillText(("Clouds per Second: " + harc), 330, 170);
+			
+		}
+		}, 1000);
 	}
 }
 
@@ -277,6 +290,21 @@ function clickButton(x, y){
 				alert("You don't have enough silver! :(");	
 			}
 		}
+		else{
+			// If a cloud is clicked
+			for(var i = 0; i <= positionsx.length; i++){
+				for(var j = 0; j <= positionsy.length; j++){
+					if(x >= i && x <= i + 40){
+						if(y >= j && y <= j	+ 40){
+							ct.clearRect(i, j, 40, 40);
+							alert("hey");
+						}
+					}
+				}
+				
+			}
+			
+		}
 		
 	}
 	
@@ -301,7 +329,7 @@ function clickButton(x, y){
 function setMenu(menuName){
 	var upgradeBtns1 = ["HpS", "Volume", "Next"];
 	var upgradeBtns2 = ["VpS", "Max SpV", "Back"];
-	var menuBtns = ["-", "Upgrade", "-"];
+	var menuBtns = ["Harvest", "Upgrade", "About"];
 	var mainMenuId = "m";
 	var upgradeId = "u1";
 	var upgradeId2 = "u2";
