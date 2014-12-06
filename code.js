@@ -1,7 +1,7 @@
 // JavaScript Document
 
 var volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
-var lvlu1 = 0, lvlu2 = 0, lvlu3 = 0, lvlu4 = 0;
+var lvlu1 = 0, lvlu2 = 0, lvlu3 = 0, lvlu4 = 0, growr = 1.3;
 
 function harvest(volume){  // Takes in volume, spits out random number of silver
   vol = vol - volume;
@@ -9,21 +9,21 @@ function harvest(volume){  // Takes in volume, spits out random number of silver
 }
 //upgrades
 function upharr(lvlu1){
-  sil = sil - 
-  harr = harr + 
+  sil = sil - Math.pow(lvlu1, growr);
+  harr = harr + Math.pow(lvlu1, growr);
   
 }
 function upsilpvM(lvlu2){
-  sil = sil - 
-  silpvM = silpvM +   
+  sil = sil - Math.pow(lvlu2, growr);
+  silpvM = silpvM + Math.pow(lvlu2, growr);
 }
 function upvolr(lvlu3){
-  sil = sil - 
-  volr = volr +   
+  sil = sil - Math.pow(lvlu3, growr);
+  volr = volr + Math.pow(lvlu3, growr);
 }
 function upvolM(lvlu4){
-  sil = sil - 
-  volM = volM +   
+  sil = sil - Math.pow(lvlu4, growr);
+  volM = volM + Math.pow(lvlu4, growr);
 }
 
 var update = function() {
