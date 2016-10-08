@@ -2,12 +2,8 @@
 @import 'https://fonts.googleapis.com/css?family=Anaheim|Arvo';
 /* Silver Linings */
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	text-align: center;	
-	font-family: "Anaheim", "DejaVu Serif", "Verdana", sans-serif;
-}
-h2 {
-	text-align: center;
 	font-family: "Anaheim", "DejaVu Serif", "Verdana", sans-serif;
 }
 
