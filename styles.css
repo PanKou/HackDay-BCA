@@ -23,6 +23,16 @@ p {
     margin-right: auto;
     display: block;
 }
+#wormhole {
+	text-align:center;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* set wormhole image */
+    content:url("images/wormhole.png");
+}
 /* http://stackoverflow.com/questions/5127937/how-to-center-canvas-in-html5 */
 #cv {
 	text-align:center;

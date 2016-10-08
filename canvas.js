@@ -2,11 +2,6 @@
 var c = document.getElementById("cv");
 var ct = c.getContext("2d");
 
-// Upgrade Levels
-var upgradeLevels = [0, 0, 0, 0];
-var currentClouds = 0;
-loadScript("code.js", init());
-var maxClouds = volM - 1;
 /*var ug1Images = [];
 var ug2Images = [];
 for(var i = 1; i <= 13; i++){
@@ -28,12 +23,40 @@ var positionsy = [];
 		// Harvest rate - harr
 		// Silver per minute - silpvM
 
+// Load thy code script!
+// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
+function loadScript(url, callback)
+{
+    // Adding the script tag to the head as suggested before
+    var head = document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+    script.onreadystatechange = callback;
+    script.onload = callback;
+
+    // Fire the loading
+    head.appendChild(script);
+}
 
 // Menus
 var currentMenuId = "m";
 
+// Load code script only once so external JS file is not pushed over and over (crucial bugfix for game)
+loadScript("code.js", init());
+update();
+
+// Upgrade Levels
+var upgradeLevels = [0, 0, 0, 0];
+var currentClouds = 0;
+var maxClouds = volM - 1;
 
 c.addEventListener('click', on_canvas_click, false);
+
+var intv = window.setInterval(updateStuff(), 100);
 
 // Button code
 getButtons();
@@ -48,8 +71,6 @@ getSilver();
 //while(weird == 1){
 	
 
-	
-var intv = window.setInterval(updateStuff(), 100);
 //}
 
 // I mean update EVERYTHING!
@@ -70,46 +91,66 @@ function getRandomArbitrary(min, max) {
 // 262 initial height
 // 10 initial width
 var intv_cloudcreate;
+
 function getStats(){
 	
 	
 	//clearInterval(intv_cloudcreate);
-	for(var i = 0; i <= volr; i++){
-		intv_cloudcreate = setInterval(function(){
-		//alert('hello')
-		if(currentClouds <= maxClouds){
-			var cx = getRandomArbitrary(0, 196) + 40;
-			var cy = getRandomArbitrary(0, 270) + 142;
-			ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
-			positionsx.push(cx);
-			positionsy.push(cy);
-			currentClouds++;
-			// Stats!!!
-			var numClouds = vol;
-			var cloudsPerSec = volr;
-			var harvestRate = harr;
-			var silverPerMin = silpvM;
-			// Display on screen for "data nerds"
-			ct.clearRect(330, 90, 500, 100);
-			ct.font = "bold 12pt Arial";
-			ct.fillStyle = "#000000";
-			ct.fillText(("Statistics"), 330, 90);
-			ct.font = "12pt Arial";
-			ct.fillText(("Number of Clouds: " + currentClouds), 330, 110);
-			ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
-			ct.fillText(("Silver per Second: " + silpvM), 330, 150);
-			ct.fillText(("Clouds per Second: " + harc), 330, 170);
-			
-		}
-		}, 1000);
-	}
+    intv_cloudcreate = setInterval(function(){
+        //alert('hello')
+        
+        if(currentClouds <= maxClouds){
+            // add cloud to screen
+            for(var i = 0; i <= volr; i++){
+                var cx = getRandomArbitrary(0, 196) + 40;
+                var cy = getRandomArbitrary(0, 270) + 142;
+                ct.drawImage(document.getElementById("cloud"), cx, cy, 40, 40);
+                positionsx.push(cx);
+                positionsy.push(cy);
+                currentClouds++;
+            }
+            // just to be safe...?
+            /*else if(currentClouds <= 1000) {
+                ct.clearRect(30, 150, 300, 300);
+                // add another graphic to screen every 200 clouds
+                for(var i = 0; i <= volr/200; i++){
+                    var cx = getRandomArbitrary(0, 196) + 40;
+                    var cy = getRandomArbitrary(0, 270) + 142;
+                    ct.drawImage(document.getElementById("wormhole"), cx, cy, 40, 40);
+                    positionsx.push(cx);
+                    positionsy.push(cy);
+                    //alert("50?!");
+                }
+                // still increment clouds by 1 each time
+                for(var i = 0; i <= volr; i++){
+                    currentClouds++;
+                }
+            }*/
+        }
+        
+        // Stats!!!
+        var numClouds = vol;
+        var cloudsPerSec = volr;
+        var harvestRate = harr;
+        var silverPerMin = silpvM;
+        // Display on screen for harvest data and upgrade results
+        ct.clearRect(330, 75, 500, 100);
+        ct.font = "bold 12pt Arvo";
+        ct.fillStyle = "#000000";
+        ct.fillText(("Statistics"), 330, 90);
+        ct.font = "12pt Anaheim";
+        ct.fillText(("Number of Clouds: " + currentClouds), 330, 110);
+        ct.fillText(("Harvest Rate/sec: " + harr), 330, 130);
+        ct.fillText(("Silver per Second: " + silpvM), 330, 150);
+        ct.fillText(("Clouds per Second: " + harc), 330, 170);
+    }, 1000);
 }
 
 function getSilver(){
 	ct.clearRect(300, 30, 500, 90);
 	//var sil = sil;
 	// number of silver
-	ct.font = "30pt Arial";
+	ct.font = "30pt Arvo";
 	ct.fillStyle = "red";
 	ct.fillText((sil + " silver"), 300, 70);
 }
@@ -145,11 +186,11 @@ function getPrices(s1, s2){
 	ct.clearRect(30, 390, 500, 40);
 	
 	// price 1
-	ct.font = "10pt Arial";
+	ct.font = "10pt Anaheim";
 	ct.fillStyle = "blue";
 	ct.fillText(s1, 30, 430);
 	// price 2
-	ct.font = "10pt Arial";
+	ct.font = "10pt Anaheim";
 	ct.fillStyle = "blue";
 	ct.fillText(s2, 180, 430);
 	
@@ -161,15 +202,15 @@ function getPrices(s1, s2){
 function changeButtons(s1, s2, s3){
 	
 	// button 1
-	ct.font = "20pt Arial";
+	ct.font = "20pt Anaheim";
 	ct.fillStyle = "#ffffff";
 	ct.fillText(s1, 30, 480);
 	// button 2
-	ct.font = "20pt Arial";
+	ct.font = "20pt Anaheim";
 	ct.fillStyle = "#ffffff";
 	ct.fillText(s2, 180, 480);
 	// button 3
-	ct.font = "20pt Arial";
+	ct.font = "20pt Anaheim";
 	ct.fillStyle = "#ffffff";
 	ct.fillText(s3, 330, 480);
 	ct.stroke();
@@ -182,6 +223,7 @@ function on_canvas_click(ev) {
 	// This is for the button click testing
 	//alert("clicked button");
 	clickButton(x1, y1);
+    
 	//alert("x " + x1 + "y " + y1);
     // ... x,y are the click coordinates relative to the
     // canvas itself
@@ -211,13 +253,14 @@ function clickButton(x, y){
 		//alert("left button clicked");
 		if(currentMenuId == "m"){
 			//alert("test");
-			loadScript("code.js", harvest(currentClouds));
+			harvest(currentClouds);
 			var collectedSilver = totalVol;
 			sil += collectedSilver;
 			sil = Math.round(sil);
 			ct.clearRect(30, 150, 300, 300);
+            getSilver();
 					//ct.drawImage(document.getElementById("silver"), positionsx[i], positionsy[j], 40, 40);
-			updateStuff();
+			//updateStuff();
 			/*for(var i = 0; i <= positionsx.length; i++){
 				for(var j = 0; j <= positionsy.length; j++){
 					
@@ -246,7 +289,7 @@ function clickButton(x, y){
 				//alert(pricesil1);
 				//sil = sil - pricesil1;
 				
-				loadScript("code.js", upharr());
+				upharr();
 				updateStuff();
 			}
 			else{
@@ -270,7 +313,7 @@ function clickButton(x, y){
 				//ct.drawImage(ug1Images[upgradeLevels[2]], 30, 542, 40, 40);
 				
 				//sil = sil - pricesil3;
-				loadScript("code.js", upvolr());
+				upvolr();
 				updateStuff();
 				
 			}
@@ -308,7 +351,7 @@ function clickButton(x, y){
 				//ct.drawImage(ug2Images[upgradeLevels[1]], 30, 542, 40, 40);
 				
 				//sil = sil - pricesil2;
-				loadScript("code.js", upsilpvM());
+				upsilpvM();
 				updateStuff();
 			}
 			else{
@@ -327,7 +370,7 @@ function clickButton(x, y){
 				upgradeLevels[3]++;
 				//alert(sil);
 				//sil = sil - pricesil4;
-				loadScript("code.js", upvolM());
+				upvolM();
 				updateStuff();
 				
 				
@@ -369,6 +412,11 @@ function clickButton(x, y){
 			setMenu("m");
 			getPrices("", "");
 		}
+		// Main menu button
+		else if(currentMenuId == "m"){
+            // About button, open personal website in new tab
+            window.open('http://techware.me', '_blank');
+        }
 	}
 	
 	
@@ -390,24 +438,4 @@ function setMenu(menuName){
 	
 	currentMenuId = menuName;
 	
-}
-
-
-// Load thy code script!
-// http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
-function loadScript(url, callback)
-{
-    // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-
-    // Then bind the event to the callback function.
-    // There are several events for cross browser compatibility.
-    script.onreadystatechange = callback;
-    script.onload = callback;
-
-    // Fire the loading
-    head.appendChild(script);
 }
