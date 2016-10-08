@@ -2,7 +2,7 @@
 
 A Canvas/HTML5 cloud harvesting game made by PanKou and TGSoftware at Local Hack Day BCA 2014.
 
-Currently in beta.
+**Current Version: 2.0**
 
 https://rawgit.com/TGSoftware/SilverLinings/master/index.html
 
