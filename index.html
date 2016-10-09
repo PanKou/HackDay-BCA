@@ -1,28 +1,56 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Silver Linings</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
 
+<head>
+	<meta charset="utf-8">
+	<title>Silver Linings by Tech Guy Software</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="images/Cloud-favicon.png" type="image/png">
+    
+	<script>
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-58995909-6', 'auto');
+  	ga('send', 'pageview');
+		
+	</script>
 </head>
 
-
-
 <body>
-<!-- Game graphics !-->
-<canvas id="cv" height="600" width="500"> Your browser does not support Canvas :( </canvas>
-<!--<p id="button">Upgrade</p>!-->
 
-<h1>Silver Linings</h1>
-<img id="cloud" src="Cloud-final.png" height="40" width="40">
-<img id="silver" src="silver.png" height="0" width="0">
-<h2>Game</h2>
+	<!-- Game graphics !-->
+	<canvas id="cv" height="600" width="500"> Your browser does not support Canvas :( </canvas>
 
+	<h1>Silver Linings v2.0</h1>
 
-
+	<img id="cloud" src="images/Cloud-final.png" height="40" width="40">
+	<img id="silver" src="images/silver.png" height="0" width="0">
+	<img id="wormhole" src="images/wormhole.png" style="display:none;">
+	
+	<h2>How to Play</h2>
+	
+	<p>Click on the Harvest button to harvest clouds!</p>
+	<p>Upgrade your farm by clicking on the Upgrade button and selecting an option.</p>
+	
+	<h3>Upgrades</h3>
+	<p>
+		HpS = increases cloud harvest limit per second<br>
+		Volume = increases the amount of clouds you can have at a time<br>
+		VpS = increases how many clouds come in per second<br>
+		Max SpV = increases the amount of silver you harvest per cloud
+	</p>
+		
+	
+	<h2>By <a href="http://techware.me">Tech Guy Software</a> and <a href="https://github.com/PanKou">PanKou</a></h2>
+	<h3><a href="https://github.com/TGSoftware/SilverLinings">Source Code</a></h3>
+	<p>Licensed under the <strong>MIT License</strong></p>
+	
 </body>
 
-<script src="code.js"></script>
-<script src="canvas.js"></script>
+	<script src="code.js"></script>
+	<script src="canvas.js"></script>
+	
 </html>

@@ -1,20 +1,21 @@
 @charset "utf-8";
-/* CSS Document */
+@import 'https://fonts.googleapis.com/css?family=Anaheim|Arvo';
+/* Silver Linings */
 
-h1{
-	text-align:center;	
-	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
-}
-h2{
-	text-align:center;
-	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;	
+	font-family: "Anaheim", "DejaVu Serif", "Verdana", sans-serif;
 }
 
-#button{
-	text-align:center;
-	font-family:Helvetica, Arial, sans-serif;	
+#button {
+	text-align: center;
+	font-family: "Arvo", "DejaVu Sans", "Arial", sans-serif;	
 }
-#cloud{
+p {
+	text-align: center;
+	font-family: "Arvo", "DejaVu Sans", "Verdana", sans-serif;
+}
+#cloud {
 	text-align:center;
 	padding-left: 0;
     padding-right: 0;
@@ -22,8 +23,18 @@ h2{
     margin-right: auto;
     display: block;
 }
+#wormhole {
+	text-align:center;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /* set wormhole image */
+    content:url("images/wormhole.png");
+}
 /* http://stackoverflow.com/questions/5127937/how-to-center-canvas-in-html5 */
-#cv{
+#cv {
 	text-align:center;
 	display:inline;
 	border:2px solid #000000;
@@ -33,7 +44,7 @@ h2{
     margin-right: auto;
     display: block;
 }
-canvas{
+canvas {
 	text-align:center;
 	display:inline;
 }

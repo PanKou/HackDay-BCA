@@ -1,4 +1,10 @@
-// JavaScript Document
+// Stats
+	// Clouds
+		// # of clouds - vol
+	// Rates
+		// Clouds per second - volr
+		// Harvest rate - harr
+		// Silver per minute - silpvM
 
 var volM, vol, volr, intialSil, sil, silpvM, harr, harc, autoc, autos, harvc;
 var pricesil1, pricesil2, pricesil3, pricesil4, incharr, incsilpvM, incvolr, incvolM;
@@ -7,7 +13,6 @@ var totalVol;
 function init(){
 	volM = 20, vol=0, volr=0, sil=0, silpvM=1, harr=0, harc=1, autoc = true, autos=true, harvc = false;
 	pricesil1 = 1, pricesil2 = 1, pricesil3 = 1, pricesil4 = 1, incharr = 1.2, incsilpvM = 0.5, incvolr = 2, incvolM = 1;
-	
 }
 
 
@@ -62,7 +67,7 @@ function upvolM(){
 
 var update = function() {
   if (autoc && vol < volM) {		
-    vol = vol+volr;
+    vol += volr;
     if (vol>volM) {
       vol = volM;
     }
@@ -75,8 +80,3 @@ var update = function() {
     harvest(harc);
   }
 }
-
-/*while(true){
-  update();
-}*/
-
